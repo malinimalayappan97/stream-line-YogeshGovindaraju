@@ -2,10 +2,10 @@
 #define BMSMAIN
 
 #include <iostream>
-#include "BmsParameterReader.h"
+#include "BmsSensor.h"
 #include "BmsDataProcessor.h"
 #include "BmsResult.h"
 
-void processBmsParametersFromSensorToConsole(BmsParameters (*readBmsParameterReadings)(), void (*sendDataToConsole)(std::string));
+void processBmsParametersFromSensorToConsole(BmsParameters (*getBmsSensorReadings)(), void (*sendDataToConsole)(std::string));
 
 #endif

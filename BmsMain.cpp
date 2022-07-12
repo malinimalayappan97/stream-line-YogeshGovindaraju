@@ -1,16 +1,16 @@
 #include "BmsMain.h"
 #include "TestBmsDataProcessor.h"
 
-void processBmsParametersFromSensorToConsole(BmsParameters (*readBmsParameterReadings)(), void (*sendDataToConsole)(std::string))
+void processBmsParametersFromSensorToConsole(BmsParameters (*getBmsSensorReadings)(), void (*sendDataToConsole)(std::string))
 {
-    BmsParameters bmsParameters = (*readBmsParameterReadings)();
+    BmsParameters bmsParameters = (*getBmsSensorReadings)();
     std::string readings = processBmsData(bmsParameters);
     (*sendDataToConsole)(readings);
 }
 
 int main()
 {
-    processBmsParametersFromSensorToConsole(&readBmsParameterReadings, &sendDataToConsole);
+    processBmsParametersFromSensorToConsole(&getBmsSensorReadings, &sendDataToConsole);
     testBmsData();
     return 0;
 }
